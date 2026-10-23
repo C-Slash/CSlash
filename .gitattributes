@@ -1,0 +1,7 @@
+# Normalize line endings
+* text=auto
+
+# C/ source files: highlight and classify as C++ on GitHub
+*.cslash linguist-language=C++
+*.cslash linguist-detectable
+*.cslash text eol=lf
