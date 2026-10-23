@@ -1,4 +1,4 @@
-# C/ Language Specification (draft)
+# C/ Language Specification (v1.0.0 draft)
 
 ## 1. Lexical rules
 
@@ -22,7 +22,7 @@ from: "pr.cache";
 | Directive | Purpose |
 |-----------|---------|
 | `#include: "file";` | Raw, blind text paste of the file. |
-| `#import: "file";` | Loads the file exactly once into the engine scope (idempotent, duplicate-protected). |
+| `#import: "file";` | Loads the file exactly once into the engine scope (idempotent, duplicate-protected). The file is injected from the copy of that name linked in the `cslash` repository (for example `pr.txt`). |
 | `#create: "name", to: path;` | Creates a resource at the target directory. |
 | `#convert: path, to: cslash;` | Ingests data or foreign code, translates it, and restructures it into native C/. |
 | `#if: "file" = dir, from: "cache";` | Checks whether the file exists in the given directory (resolved through the `from:` cache). Evaluates to true or false. |
@@ -38,7 +38,7 @@ from: "pr.cache";
 
 - On the Private Runtime (PR), a `pr.cache` is required. It defines the directories, and the set directory is resolved from it.
 - On the normal Runtime, no `pr.cache` is needed: it is already configured with `dir/default` set to the Downloads folder.
-- Off the PR, the file being checked cannot be locally hosted yet, so it must be a link to a file in a GitHub repository. Local file checks are planned for the next version.
+- As of v1.0.0, `#if` can check locally hosted files on both the PR and the normal Runtime, so a link to a file in a GitHub repository is no longer required.
 
 Example (on a PR):
 
