@@ -1,0 +1,11 @@
+#import: "pr.txt";
+* // This is a native comment line!
+#create: "byte_target.txt", to: dir/default;
+from: "pr.cache";
+
+#if: "byte_target.txt" = dir/default/byte_target.txt,
+#convert: dir/default/byte_target.txt, to: cslash;
+
+#if dir/default/byte_target.cslash = valid,
+#run: "byte_target.cslash", then:
+#byte_generate: "logo_test.png"
